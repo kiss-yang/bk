@@ -20,7 +20,7 @@ create table comment(
     comment text,
     comtime datetime,
     uid varchar(20) references users(uid),
-    fromuid varchar(20) references users(uid)
+    chatid varchar(20) references users(uid)
 );
 create table dianzan(
     uid varchar(20) references users(uid),

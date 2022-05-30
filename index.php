@@ -53,14 +53,16 @@
         <!-- 话题的结构（布局） -->
         <?php
             include 'conn.php';
-            $sql="select * from chat order by pubtime desc";
-            $rs=$conn->query($sql);
+            $sql="select c.*, u.nickname from chat c, users u where c.uid = u.uid order by pubtime desc";
+            $sql1="select * from chat order by pubtime desc";
+            $rs=$conn->query($sql1);
             while($row=$rs->fetch_assoc()){
                 echo $row['title'];
                 ?>
         <div class="chatbox">
             <div class='face'></div>
             <div>
+<!--                <h4>--><?php //echo $row['nickname']?><!--</h4>-->
                 <h4><?php echo $row['uid']?></h4>
                 <span><?php echo $row['pubtime']?></span>
             </div>
@@ -68,7 +70,7 @@
             <div></div>
             <div>
                 <h3><?php echo  $row['title']?></h3>
-                <h3><?php ?></h3>
+                <h3><?php echo $row['content']?></h3>
             </div>
 
             <div></div>
@@ -76,10 +78,21 @@
 
             <div></div>
             <div>
+            <?php
+                $sql2="select * from comment where ";
+                $rs2=$conn->query($sql2);
+                while ($comment=$rs2->fetch_assoc()){
+                    echo "<div>";
+                    echo "<b>".$comment['nickname']."</b>";
+                    echo $comment['comment'];
+                    echo $comment['comtime'];
+                    echo "</div>";
+                }
+            ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
+<!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
+<!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
+<!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
             </div>
         </div>
     </div>
