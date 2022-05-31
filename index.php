@@ -79,8 +79,9 @@
             <div></div>
             <div>
             <?php
-                $sql2="select * from comment where ";
-                $rs2=$conn->query($sql2);
+            $sql2="select c.*, u.nickname from chat c, users u where c.uid = u.uid order by pubtime desc";
+
+            $rs2=$conn->query($sql2);
                 while ($comment=$rs2->fetch_assoc()){
                     echo "<div>";
                     echo "<b>".$comment['nickname']."</b>";
@@ -90,6 +91,11 @@
                 }
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
+                <a class="showComment()">[评论]</a>
+                <from action="commentSave.php" method="post" ">
+                    <textarea name="comment" cols="30" rows="3"></textarea>
+                    <button class="btn btn-success btn-sm">提交</button>
+                </from>
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
@@ -182,5 +188,12 @@
             </div>
         </div>
     </form>
+
+    <script>
+        $('.showComment').click(function(){
+
+        $(this).siblings('form').toggle()
+        }
+    </script>
 </body>
 </html>
