@@ -4,7 +4,7 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,8 +43,8 @@
                 欢迎：
                 <?php
                     echo $_SESSION['nickname'];
-                ?>! | 
-                <a href="logout.php">退出</a> | 
+                ?>!
+                <a href="login_out.php">退出</a>
                 <a data-bs-toggle="modal" data-bs-target="#chatModal">发布话题</a>
             <?php
                 }
@@ -77,6 +77,7 @@
             <a>[评论]</a>
 
             <div></div>
+
             <div>
             <?php
             $sql2="select c.*, u.nickname from chat c, users u where c.uid = u.uid order by pubtime desc";
@@ -91,11 +92,12 @@
                 }
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <a class="showComment()">[评论]</a>
-                <from action="commentSave.php" method="post" ">
+                <a class="showComment">[评论]</a>
+                <form action="commentSave.php" method="post" ">
+<!--                    <input type="text" name="chat" value="">-->
                     <textarea name="comment" cols="30" rows="3"></textarea>
                     <button class="btn btn-success btn-sm">提交</button>
-                </from>
+                </form>
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
 <!--                <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>-->
