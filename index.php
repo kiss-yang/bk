@@ -94,7 +94,7 @@
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
                 <a class="showComment">[评论]</a>
                 <form action="commentSave.php" method="post" ">
-<!--                    <input type="text" name="chat" value="">-->
+                    <input type="text" name="chatid" value="">
                     <textarea name="comment" cols="30" rows="3"></textarea>
                     <button class="btn btn-success btn-sm">提交</button>
                 </form>
