@@ -73,10 +73,10 @@
                 <h3><?php echo $row['content']?></h3>
             </div>
 
-            <div></div>
-            <a>[评论]</a>
-
-            <div></div>
+<!--            <div></div>-->
+<!--            <a class="showComment">[评论]</a>-->
+<!---->
+<!--            <div></div>-->
 
             <div>
             <?php
