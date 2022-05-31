@@ -16,6 +16,7 @@
     $stsm->bind_param("sssi",$comment,$time,$uid,$chatid);
     $stsm->execute();
     echo "评论成功";
+
     header("Localhost:index.php");
 
 

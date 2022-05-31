@@ -92,7 +92,11 @@
                 }
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <a class="showComment">[评论]</a>
+                <div>
+                    <img src="img/dianzan1.png" title="点赞" id="dianzan">
+                    <a class="showComment">[评论]</a>
+                </div>
+
                 <form action="commentSave.php" method="post" ">
                     <input type="text" name="chatid" value="">
                     <textarea name="comment" cols="30" rows="3"></textarea>
