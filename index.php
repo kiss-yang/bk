@@ -27,6 +27,16 @@
             background: #ccc;
             border-radius: 50%;
         }
+        .pl-box{
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        #dianzan{
+            width: 40px;
+
+
+        }
     </style>
 </head>
 <body>
@@ -92,7 +102,7 @@
                 }
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
-                <div>
+                <div class="pl-box">
                     <img src="img/dianzan1.png" title="点赞" id="dianzan">
                     <a class="showComment">[评论]</a>
                 </div>
