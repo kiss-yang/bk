@@ -104,7 +104,7 @@
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
                 <div class="pl-box">
                     <img src="img/dianzan1.png" title="点赞" id="dianzan">
-                    <a class="showComment">[评论]</a>
+                    <img src="img/评论.png" title="评论" id="dianzan">
                 </div>
 
                 <form action="commentSave.php" method="post" ">
