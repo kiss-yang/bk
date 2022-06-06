@@ -90,7 +90,7 @@
 
             <div>
             <?php
-            $sql2="select c.*, u.nickname from chat c, users u where c.uid = u.uid order by pubtime desc";
+            $sql2="select c.*, u.nickname from comment c, users u where c.uid=u.uid and c.chatid=".$row['id']." order by comtime desc";
 
             $rs2=$conn->query($sql2);
                 while ($comment=$rs2->fetch_assoc()){
@@ -103,7 +103,7 @@
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
                 <div class="pl-box">
-                    <img src="img/dianzan1.png" title="点赞" id="dianzan">
+                    <img src="img/dianzan1.png" title="点赞" id="dianzan" onclick="dianzan('<?php echo $row['id'];?>')">
                     <img src="img/评论.png" title="评论" id="dianzan">
                 </div>
 
@@ -208,7 +208,20 @@
     <script>
         $('.showComment').click(function(){
 
-        $(this).siblings('form').toggle()
+        $(this).parent().siblings('from').toggle()
+        }
+        //点赞
+        function dianzan(chat_id){
+            // alert(chat_id)
+            $.ajax(
+                {
+                    type:"post",
+                    url:"dianzan.php",
+                    data:{chatid:chat_id},
+                    dataType:"json",
+                    success:function (response)
+                }
+            )
         }
     </script>
 </body>
