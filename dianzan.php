@@ -1,6 +1,12 @@
 <?php
 //检测用户是否登录
-include 'islogin.php';
+session_start();
+if(empty($_SESSION['uid'])){
+//    查看会话是否存在，不存在表示没有登录
+   echo json_encode(['code'=>9]);
+   die;
+}
+
 $chatid=$_POST['chatid'];
 $uid=$_SESSION['uid'];
 $time = date('Y-m-d H:i:s');

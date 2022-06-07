@@ -103,6 +103,8 @@
             ?>
                 <div><b>小亮：</b>评论评论评论评论评论评论评论评论</div>
                 <div class="pl-box">
+<!--                    判断是否点过赞-->
+
                     <img src="img/dianzan1.png" title="点赞" id="dianzan" onclick="dianzan('<?php echo $row['id'];?>')">
                     <img src="img/评论.png" title="评论" id="dianzan">
                 </div>
@@ -219,8 +221,21 @@
                     url:"dianzan.php",
                     data:{chatid:chat_id},
                     dataType:"json",
-                    success:function (response)
-                }
+                    success:function (response){
+                        console.log(response)
+                        if (response.code==9){
+                            alert('先登录后点赞好习惯')
+                        }
+                        else if(response.code==1){
+                            alert('点赞成功')
+                        }else {
+                            alert('点赞失败')
+                        }
+                    }
+                },
+                onerror{
+                    onerror:function (err)
+            }
             )
         }
     </script>
